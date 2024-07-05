@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(45deg, grey 0%, lightgray 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slots {
+  width: 276.5px;
+  height: 237px;
+  border: 1px solid black;
+  padding: 23.7px;
+  display: flex;
+  justify-content: space-between;
+}
+.slots .reel {
+  border: 1px solid black;
+  width: 79px;
+  height: 237px;
+  background-image: url("./slotreel.webp");
+  background-repeat: repeat-y;
+  background-position: 0px 0px;
+}/*# sourceMappingURL=slots.css.map */

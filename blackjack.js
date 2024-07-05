@@ -77,6 +77,9 @@ function bet() {
     monAmt.innerText = your_money;
     betAmt.value = "";
 
+    var snd = new Audio("./sounds/chips.mp3"); // buffers automatically when created
+    snd.play();
+
     generateCards();
 }
 
@@ -105,7 +108,7 @@ function generateCards() {
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
         document.getElementById("dealer-cards").append(cardImg);
-        document.getElementById("dealer-cards")[-1].src
+        // document.getElementById("dealer-cards")[-1].src
     }
     // console.log(hidden);
     // console.log(dealerSum);
@@ -134,9 +137,15 @@ function hit() {
     yourSum += getValue(card);
     document.getElementById("your-cards").append(cardImg);
 
+    
+
     if (reduceAce(yourSum, yourAceCount) > 21) {
         canHit = false;
         stay();
+    }
+    else {
+        var snd = new Audio("./sounds/flip.mp3"); // buffers automatically when created
+        snd.play();
     }
     // console.log(yourSum);
 }
@@ -151,10 +160,14 @@ function stay() {
     let message = "";
     if (yourSum > 21) {
         message = "You Lose!";
+        var snd = new Audio("./sounds/lose.mp3"); // buffers automatically when created
+        snd.play();
     } 
     else if (dealerSum > 21) {
         message = "You Win $" + (pot_total * 1.5) + "!";
         your_money += (pot_total * 1.5);
+        var snd = new Audio("./sounds/win.mp3"); // buffers automatically when created
+        snd.play();
     }
     else if (yourSum == dealerSum) {
         message = "Tie!";
@@ -163,8 +176,12 @@ function stay() {
     else if (yourSum > dealerSum) {
         message = "You Win $" + (pot_total * 1.5) + "!";
         your_money += (pot_total * 1.5);
+        var snd = new Audio("./sounds/win.mp3"); // buffers automatically when created
+        snd.play();
     } else if (yourSum < dealerSum) {
         message = "You Lose!";
+        var snd = new Audio("./sounds/lose.mp3"); // buffers automatically when created
+        snd.play();
     }
 
     localStorage.setItem("your_money", your_money);

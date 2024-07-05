@@ -1,0 +1,32 @@
+$icon_width: 79px;
+$icon_height: 79px;
+$num_icons: 9;
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(45deg, grey 0%, lightgray 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slots {
+    width: 3.5 * $icon_width;
+    height: 3 * $icon_height;
+    border: 1px solid black;
+    padding: 0.3 * $icon_height;
+    display: flex;
+    justify-content: space-between;
+
+    .reel {
+        border: 1px solid black;
+        width: $icon_width;
+        height: 3 * $icon_height;
+        background-image: url("./slotreel.webp");
+        background-repeat: repeat-y;
+        background-position: 0px 0px;
+    }
+}
